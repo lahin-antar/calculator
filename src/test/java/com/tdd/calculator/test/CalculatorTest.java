@@ -33,8 +33,8 @@ public class CalculatorTest {
     public void testForSumOfMultipleValues() {
         try {
             Calculator.add("1,2,a,b,3,c,d,e");
-        } catch (DataFormatException ife) {
-            assertEquals("Invalid values in the input number string 1,2,a,b,3,c,d,e", ife.getMessage());
+        } catch (DataFormatException dfe) {
+            assertEquals("Invalid values in the input number string 1,2,a,b,3,c,d,e", dfe.getMessage());
         }
     }
 
@@ -43,13 +43,13 @@ public class CalculatorTest {
         assertEquals(6, Calculator.add("1\n2,3"));
         try {
             Calculator.add("1,\n");
-        } catch (DataFormatException ife) {
-            assertEquals("Invalid values in the input number string 1,\n", ife.getMessage());
+        } catch (DataFormatException dfe) {
+            assertEquals("Invalid values in the input number string 1,\n", dfe.getMessage());
         }
         try {
             Calculator.add("1\n2,,3");
-        } catch (DataFormatException ife) {
-            assertEquals("Invalid values in the input number string 1\n2,,3", ife.getMessage());
+        } catch (DataFormatException dfe) {
+            assertEquals("Invalid values in the input number string 1\n2,,3", dfe.getMessage());
         }
     }
 
@@ -59,5 +59,10 @@ public class CalculatorTest {
         assertEquals(6, Calculator.add("//;\n1\n2;3"));
         assertEquals(6, Calculator.add("//-\n1\n2-3"));
         assertEquals(6, Calculator.add("//%%\n1\n2%%3"));
+        try {
+            Calculator.add("//%%\n1\n2%%");
+        } catch (DataFormatException dfe) {
+            assertEquals("Invalid values in the input number string //%%\n1\n2%%", dfe.getMessage());
+        }
     }
 }
