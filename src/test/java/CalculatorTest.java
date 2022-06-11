@@ -33,4 +33,14 @@ public class CalculatorTest {
             assertEquals("Invalid values in the input number string", ife.getMessage());
         }
     }
+
+    @Test
+    public void testForInputWithLineSeparators() {
+        try {
+            assertEquals(6, Calculator.add("1\n2,3"));
+            Calculator.add("1,\n");
+        } catch (InvalidFormatException ife) {
+            assertEquals("Invalid values in the input number string", ife.getMessage());
+        }
+    }
 }
