@@ -52,4 +52,9 @@ public class CalculatorTest {
             assertEquals("Invalid values in the input number string 1\n2,,3", ife.getMessage());
         }
     }
+
+    @Test
+    public void testForCustomDelimiters() throws DataFormatException {
+        assertEquals(6, Calculator.add("//%%\n1\n2%%3"));
+    }
 }
