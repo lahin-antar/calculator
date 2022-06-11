@@ -55,6 +55,9 @@ public class CalculatorTest {
 
     @Test
     public void testForCustomDelimiters() throws DataFormatException {
+        assertEquals(6, Calculator.add("//%\n1\n2%3"));
+        assertEquals(6, Calculator.add("//;\n1\n2;3"));
+        assertEquals(6, Calculator.add("//-\n1\n2-3"));
         assertEquals(6, Calculator.add("//%%\n1\n2%%3"));
     }
 }
