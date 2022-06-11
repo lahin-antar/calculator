@@ -74,4 +74,9 @@ public class CalculatorTest {
             assertEquals("Negatives not allowed: [-2, -4]", dfe.getMessage());
         }
     }
+
+    @Test
+    public void testToIgnoreBigNumbers() throws DataFormatException {
+        assertEquals(6, Calculator.add("//%\n1\n2%3%1000"));
+    }
 }
