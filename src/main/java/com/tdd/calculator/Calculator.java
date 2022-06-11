@@ -21,7 +21,7 @@ public class Calculator {
         int start = 0;
         // get custom delimiter
         if (inputLines[0].startsWith("//")) {
-            delimiter = inputLines[0].substring(2).replaceAll("\\*", "\\\\*");
+            delimiter = getDelimiterRegex(inputLines[0]);
             start++; // start iterating from second line if the custom delimiter is present
         }
 
@@ -36,6 +36,18 @@ public class Calculator {
             throw new DataFormatException(String.format("Negatives not allowed: %s", negativeNumbers));
         }
         return sum;
+    }
+
+    private static String getDelimiterRegex(String inputLine) {
+        String delimiterString = inputLine.substring(2);
+        StringBuilder delimiterSb = new StringBuilder(delimiterString.substring(0,1));
+        for (int i = 1; i < delimiterString.length(); i++) {
+            if (delimiterString.charAt(i) != delimiterString.charAt(i - 1)) {
+                delimiterSb.append('|');
+            }
+            delimiterSb.append(delimiterString.charAt(i));
+        }
+        return delimiterSb.toString().replaceAll("\\*", "\\\\*");
     }
 
     private static void validateInputLine(String inputLine, String input, String delimiter) throws DataFormatException {
