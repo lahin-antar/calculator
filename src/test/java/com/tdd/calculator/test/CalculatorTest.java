@@ -65,4 +65,13 @@ public class CalculatorTest {
             assertEquals("Invalid values in the input number string //%%\n1\n2%%", dfe.getMessage());
         }
     }
+
+    @Test
+    public void testForNegativeInputValues() {
+        try {
+            Calculator.add("//%\n1\n-2%3%-4");
+        } catch (DataFormatException dfe) {
+            assertEquals("Negatives not allowed: [-2, -4]", dfe.getMessage());
+        }
+    }
 }
