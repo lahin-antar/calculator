@@ -80,4 +80,10 @@ public class CalculatorTest {
         assertEquals(1006, Calculator.add("//%\n1\n2%3%1000"));
         assertEquals(6, Calculator.add("//%\n1\n2%3%1001"));
     }
+
+    @Test
+    public void testForMultiCharacterDelimiter() throws DataFormatException {
+        assertEquals(10, Calculator.add("//%%%\n1%%%4\n2%%%3"));
+        assertEquals(12, Calculator.add("//***\n1***2\n6***3"));
+    }
 }
