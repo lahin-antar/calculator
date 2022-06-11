@@ -86,4 +86,9 @@ public class CalculatorTest {
         assertEquals(10, Calculator.add("//%%%\n1%%%4\n2%%%3"));
         assertEquals(12, Calculator.add("//***\n1***2\n6***3"));
     }
+
+    @Test
+    public void testForMultipleDelimiters() throws DataFormatException {
+        assertEquals(21, Calculator.add("//%,*\n1,4\n2*3\n5%6"));
+    }
 }
