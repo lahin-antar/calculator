@@ -23,8 +23,8 @@ public class Calculator {
         }
         for (int i = start; i < inputLines.length; i++) {
             String inputLine = inputLines[i];
-            // if first or last character of an input line has a delimiter character, it's an invalid input
-            if (',' == inputLine.charAt(0) || ',' == inputLine.charAt(inputLine.length() - 1)) {
+            // if an input line starts or ends with delimiter characters, it's an invalid input
+            if (inputLine.startsWith(delimiter) || inputLine.endsWith(delimiter)) {
                 throw new DataFormatException(String.format("Invalid values in the input number string %s", numbers));
             }
             try {
