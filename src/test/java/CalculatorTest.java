@@ -6,22 +6,22 @@ import static org.junit.Assert.assertEquals;
 public class CalculatorTest {
 
     @Test
-    public void testForEmptyString() {
+    public void testForEmptyString() throws InvalidFormatException {
         assertEquals(0, Calculator.add(""));
     }
 
     @Test
-    public void testForOneNumber() {
+    public void testForOneNumber() throws InvalidFormatException {
         assertEquals(1, Calculator.add("1"));
     }
 
     @Test
-    public void testForTwoNumbers() {
+    public void testForTwoNumbers() throws InvalidFormatException {
         assertEquals(7, Calculator.add("3,4"));
     }
 
     @Test
-    public void testForSumOfMultipleNumbers() {
+    public void testForSumOfMultipleNumbers() throws InvalidFormatException {
         assertEquals(21, Calculator.add("1,2,3,4,5,6"));
     }
 
