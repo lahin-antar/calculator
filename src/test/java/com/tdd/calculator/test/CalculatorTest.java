@@ -77,6 +77,7 @@ public class CalculatorTest {
 
     @Test
     public void testToIgnoreBigNumbers() throws DataFormatException {
-        assertEquals(6, Calculator.add("//%\n1\n2%3%1000"));
+        assertEquals(1006, Calculator.add("//%\n1\n2%3%1000"));
+        assertEquals(6, Calculator.add("//%\n1\n2%3%1001"));
     }
 }

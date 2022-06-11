@@ -49,6 +49,9 @@ public class Calculator {
         try {
             int[] numbers = Arrays.stream(inputLine.split(delimiter)).mapToInt(Integer::parseInt).toArray();
             for (int number : numbers) {
+                if (number > 1000) {
+                    continue;
+                }
                 if (number < 0) {
                     negativeNumbers.add(number);
                 }
