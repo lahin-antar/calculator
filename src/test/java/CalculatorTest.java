@@ -1,3 +1,4 @@
+import com.sun.media.sound.InvalidFormatException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -22,5 +23,14 @@ public class CalculatorTest {
     @Test
     public void testForSumOfMultipleNumbers() {
         assertEquals(21, Calculator.add("1,2,3,4,5,6"));
+    }
+
+    @Test
+    public void testForSumOfMultipleValues() {
+        try {
+            Calculator.add("1,2,a,b,3,c,d,e");
+        } catch (InvalidFormatException ife) {
+            assertEquals("Invalid values in the input number string", ife.getMessage());
+        }
     }
 }
