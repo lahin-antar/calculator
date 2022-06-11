@@ -1,6 +1,11 @@
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 public class Calculator {
 
-    int add(String numbers) {
-        return 0;
+    public static int add(String numbers) {
+        if (isBlank(numbers)) {
+            return 0;
+        }
+        return Integer.parseInt(numbers);
     }
 }

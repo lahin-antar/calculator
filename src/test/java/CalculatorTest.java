@@ -6,7 +6,11 @@ public class CalculatorTest {
 
     @Test
     public void testForEmptyString() {
-        Calculator calculator = new Calculator();
-        assertEquals(0, calculator.add(""));
+        assertEquals(0, Calculator.add(""));
+    }
+
+    @Test
+    public void testForOneNumber() {
+        assertEquals(1, Calculator.add("1"));
     }
 }
